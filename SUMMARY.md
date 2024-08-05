@@ -1,12 +1,6 @@
 # Table of contents
 
-* [README](README.md)
-* [LICENSE](LICENSE.md)
-* [index](index.md)
-* [src](docs/ch18-extensions/src/README.md)
-  * [CityUI](docs/ch18-extensions/src/cityui/README.md)
-    * [LICENSE](docs/ch18-extensions/src/CityUI/LICENSE.md)
-* [Qt6 QML Book](docs/README.md)
+* [Qt6 QML Book](README.md)
   * [Preface](docs/preface/README.md)
     * [Welcome!](docs/preface/preface.md)
     * [Acknowledgements](docs/preface/acknowledgements.md)
@@ -164,3 +158,6 @@
     * [Integrating with C++](docs/ch20-qtformcu/cpp.md)
     * [Working with Models](docs/ch20-qtformcu/models.md)
     * [Summary](docs/ch20-qtformcu/summary.md)
+  * [About](docs/about/README.md)
+    * [Readme](docs/about/readme.md)
+    * [License](docs/about/license.md)
