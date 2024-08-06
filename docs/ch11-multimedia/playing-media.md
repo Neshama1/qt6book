@@ -28,6 +28,11 @@ In the following example, the `MediaPlayer` plays a mp4 sample video file from a
 
 <<< @/docs/ch11-multimedia/src/playback-video/main.qml#global
 
+<iframe
+  src="https://github.com/Neshama1/qt6book/blob/main/docs/ch11-multimedia/src/playback-audio/main.qml"
+  style="width:100%; height:300px;"
+></iframe>
+
 In this example, the `MediaPlayer` defines a third attribute:
 
 - `videoOutput`: it contains the video output channel, `VideoOutput`, representing the visual space reserved to display the video in the user interface.
