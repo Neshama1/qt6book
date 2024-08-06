@@ -33,6 +33,8 @@ In the following example, the `MediaPlayer` plays a mp4 sample video file from a
   style="width:100%; height:300px;"
 ></iframe>
 
+test
+
 In this example, the `MediaPlayer` defines a third attribute:
 
 - `videoOutput`: it contains the video output channel, `VideoOutput`, representing the visual space reserved to display the video in the user interface.
