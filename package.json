@@ -21,7 +21,6 @@
   },
   "dependencies": {
     "@e8johan/vuepress-plugin-pdf-export": "^1.4.0",
-    "vuepress-plugin-export": "^0.2.0",
-    "gitbook-plugin-include-codeblock": "^3.2.0"
+    "vuepress-plugin-export": "^0.2.0"
   }
 }
