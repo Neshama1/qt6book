@@ -10,6 +10,8 @@ In the following example, the `MediaPlayer` plays a mp3 sample audio file from a
 
 <<< @/docs/ch11-multimedia/src/playback-audio/main.qml#global
 
+[include](https://github.com/Neshama1/qt6book/blob/main/docs/ch11-multimedia/src/playback-audio/main.qml)
+
 In this example, the `MediaPlayer` defines two attributes: 
 
 - `source`: it contains the URL of the media to play. It can either be embedded (`qrc://`), local (`file://`) or remote (`https://`).
