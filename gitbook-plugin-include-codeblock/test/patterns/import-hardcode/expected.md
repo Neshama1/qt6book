@@ -1,0 +1,3 @@
+``` typescript
+console.log("test");
+```

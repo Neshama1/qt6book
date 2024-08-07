@@ -1,0 +1,20 @@
+{
+  "name": "example-default",
+  "version": "1.0.0",
+  "description": "gitbook-plugin-include-codeblock",
+  "private": true,
+  "scripts": {
+    "start": "honkit serve",
+    "build": "honkit build",
+    "test": "yarn install && npm run build"
+  },
+  "keywords": [
+    "gitbook"
+  ],
+  "author": "azu",
+  "license": "MIT",
+  "devDependencies": {
+    "honkit": "^3.6.23",
+    "gitbook-plugin-include-codeblock": "file:../../"
+  }
+}

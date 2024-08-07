@@ -1,0 +1,5 @@
+``` javascript
+foo;
+bar;
+baz;
+```
