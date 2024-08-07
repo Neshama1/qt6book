@@ -10,7 +10,7 @@ In the following example, the `MediaPlayer` plays a mp3 sample audio file from a
 
 <<< @/docs/ch11-multimedia/src/playback-audio/main.qml#global
 
-[import, template:"acefull", title:"example of code", theme:"monokai"](https://raw.githubusercontent.com/Neshama1/qt6book/release/docs/ch11-multimedia/src/playback-audio/main.qml)
+[import, template:"acefull", title:"example of code", theme:"monokai"](https://raw.githubusercontent.com/Neshama1/qt6book/main/docs/ch17-qtcpp/src/coreapp/main.cpp)
 
 In this example, the `MediaPlayer` defines two attributes: 
 
