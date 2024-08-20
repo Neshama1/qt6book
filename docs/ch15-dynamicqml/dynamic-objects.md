@@ -28,9 +28,9 @@ The `createObject` function takes two arguments. The first is a `parent` object 
 var image = component.createObject(root, {"x": 100, "y": 100});
 ```
 
-::: tip
+{% hint style="info" %}
 A dynamically created component instance is not different to an in-line `Component` element. The in-line `Component` element also provides functions to instantiate objects dynamically.
-:::
+{% endhint %}
 
 #### Incubating Components
 
@@ -63,9 +63,9 @@ Sometimes, it is convenient to be able to instantiate an object from a text stri
 
 The function takes three arguments: `qml`, `parent` and `filepath`. The `qml` argument contains the string of QML code to instantiate. The `parent` argument provides a parent object to the newly created object. The `filepath` argument is used when reporting any errors from the creation of the object. The result returned from the function is either a new object or `null`.
 
-::: warning
+{% hint style="warning" %}
 The `createQmlObject` function always returns immediately. For the function to succeed, all the dependencies of the call must be loaded. This means that if the code passed to the function refers to a non-loaded component, the call will fail and return `null`. To better handle this, the `createComponent` / `createObject` approach must be used.
-:::
+{% endhint %}
 
 The objects created using the `Qt.createQmlObject` function resembles any other dynamically created object. That means that it is identical to every other QML object, apart from not having an `id`. In the example below, a new `Rectangle` element is instantiated from in-line QML code when the `root` element has been created.
 
@@ -87,7 +87,7 @@ item = Qt.createQmlObject(...);
 item.destroy();
 ```
 
-::: tip
+{% hint style="info" %}
 It is possible to destroy an object from within, making it possible to create self-destroying popup windows for instance.
-:::
+{% endhint %}
 

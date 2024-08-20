@@ -8,7 +8,7 @@ The gradient in this example is defined along the starting point (100,0) to the 
 
 ![image](./assets/gradient.png)
 
-::: tip
+{% hint style="info" %}
 The gradient is defined in canvas coordinates not in coordinates relative to the path to be painted. A canvas does not have the concept of relative coordinates, as we are used to by now from QML.
-:::
+{% endhint %}
 

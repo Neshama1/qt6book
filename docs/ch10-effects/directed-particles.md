@@ -107,9 +107,9 @@ velocity: TargetDirection {
 }
 ```
 
-::: tip
+{% hint style="info" %}
 Target direction are great to use when you have a specific x/y coordinate you want the stream of particles emitted towards.
-:::
+{% endhint %}
 
 I spare you the image as it looks the same as the previous one, instead, I have a quest for you.
 

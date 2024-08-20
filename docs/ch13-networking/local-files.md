@@ -49,7 +49,7 @@ Rectangle {
 }
 ```
 
-:::tip
+{% hint style="info" %}
 For this to work, the `QML_XHR_ALLOW_FILE_READ` must be set and enabled (set to `1`). You can do so by running:
 
 ```sh
@@ -57,7 +57,7 @@ QML_XHR_ALLOW_FILE_READ=1 qml -f localfiles.qml
 ```
 
 The issue is when allowing a QML application to read local files through an `XMLHttpRequest`, hence `XHR`, this opens up the entire file system for reading, which is a potential security issue. Qt will allow you to read local files only if the environment variable is set, so that this is a concious decision.
-:::
+{% endhint %}
 
 
 

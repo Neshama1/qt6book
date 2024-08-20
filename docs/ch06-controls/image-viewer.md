@@ -305,7 +305,7 @@ Looking at the code base, much of the code is still shared. The parts that are s
 
 A file selector lets us replace individual files based on which selectors are active. The Qt documentation maintains a list of selectors in the documentation for the `QFileSelector` class ([link](https://doc.qt.io/qt-5/qfileselector.html)). In our case, we will make the desktop version the default and replace selected files when the *android* selector is encountered. During development you can set the environment variable `QT_FILE_SELECTORS` to `android` to simulate this.
 
-::: tip File Selector
+{% hint style="info" %} File Selector
 File selectors work by replacing files with an alternative when a *selector* is present.
 
 By creating a directory named `+selector` (where `selector` represents the name of a selector) in the same directory as the files that you want to replace, you can then place files with the same name as the file you want to replace inside the directory. When the selector is present, the file in the directory will be picked instead of the original file.
@@ -313,7 +313,7 @@ By creating a directory named `+selector` (where `selector` represents the name 
 The selectors are based on the platform: e.g. android, ios, osx, linux, qnx, and so on. They can also include the name of the Linux distribution used (if identified), e.g. debian, ubuntu, fedora. Finally, they also include the locale, e.g. en_US, sv_SE, etc.
 
 It is also possible to add your own custom selectors.
-:::
+{% endhint %}
 
 The first step to do this change is to isolate the shared code. We do this by creating the `ImageViewerWindow` element which will be used instead of the `ApplicationWindow` for both of our variants. This will consist of the dialogs, the `Image` element and the background. In order to make the open methods of the dialogs available to the platform specific code, we need to expose them through the functions `openFileDialog` and `openAboutDialog`.
 

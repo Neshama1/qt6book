@@ -23,9 +23,9 @@ If you do not want to use a solid color, a gradient can be used. The gradient is
 
 The first gradient we look at is the ``LinearGradient``. It creates a linear gradient between the start and end point. The end points can be positioned anyway you like, to create, for instance, a gradient at an angle. Between the end points, a range of ``GradientStop`` elements can be inserted. These are put at a ``position`` from ``0.0``, being the ``x1, y1`` position, to ``1.0``, being the ``x2, y2`` position. For each such stop, a color is specified. The gradient then creates soft transitions between the colors. 
 
-:::tip
+{% hint style="info" %}
 If the shape extends beyond the end points, the first or last color is either continued, or the gradient is repeated or mirrored. This behaviour is specified using the ``spread`` property of the ``LinearGradient`` element.
-:::
+{% endhint %}
 
 <<< @/docs/ch09-shapes/src/shapes/gradients.qml#linear
 
@@ -37,5 +37,5 @@ To instead create a gradient that forms circles, a bit like rings on the water, 
 
 <<< @/docs/ch09-shapes/src/shapes/gradients.qml#radial
 
-:::tip
+{% hint style="info" %}
 The advanced user can use a fragment shader to fill a shape. This way, you have full freedom to how the shape is filled. See the Effects chapter for more information on shaders.

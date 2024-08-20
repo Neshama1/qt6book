@@ -1,8 +1,8 @@
 # Qt for MCUs
 
-::: tip Notice
+{% hint style="info" %} Notice
 Qt for MCUs is not a part of the open source Qt distribution, but as a commercial add-on.
-:::
+{% endhint %}
 
 Qt for MCUs is a Qt version takes Qt for platforms that are too small to run Linux. Instead, Qt for MCUs can run on top of FreeRTOS, or even on the bare metal, i.e. without any operating system involved. As this book focuses on QML, we will have a deeper look at Qt Quick Ultralite and compare it to the full-size Qt offering.
 

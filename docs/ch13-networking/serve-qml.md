@@ -36,9 +36,9 @@ qml -f http://localhost:8080/Remote.qml
 
 Sweet and simple.
 
-::: tip
+{% hint style="info" %}
 If the `qml` program is not in your path, you can find it in the Qt binaries: `<qt-install-path>/<qt-version>/<your-os>/bin/qml`.
-:::
+{% endhint %}
 
 Another way of importing a remote QML document is to dynamically load it using QML ! For this, we use a `Loader` element to retrieve for us the remote document.
 
@@ -62,9 +62,9 @@ Now we can ask the `qml` executable to load the local `main.qml` loader document
 qml -f main.qml
 ```
 
-::: tip
+{% hint style="info" %}
 If you do not want to run a local server you can also use the gist service from GitHub. The gist is a clipboard like online services like Pastebin and others. It is available under [https://gist.github.com](https://gist.github.com). I created for this example a small gist under the URL [https://gist.github.com/jryannel/7983492](https://gist.github.com/jryannel/7983492). This will reveal a green rectangle. As the gist URL will provide the website as HTML code we need to attach a `/raw` to the URL to retrieve the raw file and not the HTML code.
-:::
+{% endhint %}
 
 ```qml
 // remote.qml
@@ -179,7 +179,7 @@ Rectangle {
 }
 ```
 
-::: tip
+{% hint style="info" %}
 When using components from a local file system, they are created immediately without a latency. When components are loaded via the network they are created asynchronously. This has the effect that the time of creation is unknown and an element may not yet be fully loaded when others are already completed. Take this into account when working with components loaded over the network.
-:::
+{% endhint %}
 

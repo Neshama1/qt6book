@@ -20,9 +20,9 @@ Having a model representing all dynamically created items, it is easy to create 
 
 <<< @/docs/ch14-dynamicqml/src/dynamic-scene/main.qml#M3
 
-::: tip
+{% hint style="info" %}
 Currently, the `XmlListModel` of Qt 6 lacks the `xml` property and `get()` function needed to make serialization and deserialization work.
-:::
+{% endhint %}
 
 The XML document string can be used with an `XmlListModel` by setting the `xml` property of the model. In the code below, the model is shown along the `deserialize` function. The `deserialize` function kickstarts the deserialization by setting the `dsIndex` to refer to the first item of the model and then invoking the creation of that item. The callback, `dsItemAdded` then sets that `x` and `y` properties of the newly created object. It then updates the index and creates the next object, if any.
 

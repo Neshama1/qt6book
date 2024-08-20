@@ -6,9 +6,9 @@ To test your installation, we will create a small *hello world* application. Ple
 The Qt Creator IDE allows you to create various types of applications. If not otherwise stated, we always use a Qt Quick UI prototype project. For a production application you would often prefer a `CMake` based project, but for fast prototyping this type is better suited.
 {% endhint %}
 
-::: tip
+{% hint style="info" %}
 A typical Qt Quick application is made out of a runtime called the QmlEngine which loads the initial QML code. The developer can register C++ types with the runtime to interface with the native code. These C++ types can also be bundled into a plugin and then dynamically loaded using an import statement. The `qml` tool is a pre-made runtime which is used directly. For the beginning, we will not cover the native side of development and focus only on the QML aspects of Qt 6. This is why we start from a prototype project.
-:::
+{% endhint %}
 
 Qt Creator creates several files for you. The `HelloWorld.qmlproject` file is the project file, where the relevant project configuration is stored. This file is managed by Qt Creator, so don’t edit it yourself.
 
@@ -38,11 +38,11 @@ In the background, Qt Creator runs `qml` and passes your QML document as the fir
 
 Qt 6 works! That means we’re ready to continue.
 
-::: tip
+{% hint style="info" %}
 If you are a system integrator, you’ll want to have Qt SDK installed to get the latest stable Qt release, as well as a Qt version compiled from source for your specific device target.
-:::
+{% endhint %}
 
-::: tip
+{% hint style="info" %}
 Build from Scratch
 
 If you’d like to build Qt 6 from the command line, you’ll first need to grab a copy of the code repository and build it. Visit Qt’s wiki for an up-to-date explanation of how to build Qt from git.
@@ -52,5 +52,5 @@ After a successful compilation (and 2 cups of coffee), Qt 6 will be available in
 If you want to test your compilation, you can now run the example with the default runtime that comes with Qt 6:
 
     $ qtbase/bin/qml
-:::
+{% endhint %}
 

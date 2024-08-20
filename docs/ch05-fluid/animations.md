@@ -4,14 +4,14 @@ Animations are applied to property changes. An animation defines the interpolati
 
 An animation is defined by a series of target properties to be animated, an easing curve for the interpolation curve, and a duration. All animations in Qt Quick are controlled by the same timer and are therefore synchronized. This improves the performance and visual quality of animations.
 
-::: tip Animations control how properties change using value interpolation
+{% hint style="info" %} Animations control how properties change using value interpolation
 
 This is a fundamental concept. QML is based on elements, properties, and scripting. Every element provides dozens of properties, each property is waiting to get animated by you. In the book, you will see this is a spectacular playing field. 
 
 You will catch yourself looking at some animations and just admiring their beauty, and your creative genius, too. Please remember then: *animations control property changes and every element has dozens of properties at your disposal*.
 
 **Unlock the power!**
-:::
+{% endhint %}
 
 ![](./assets/animation_sequence.png)
 
@@ -154,11 +154,11 @@ Item {
 
 To organize the element below the image we used a Column positioner and calculated the width and height based on the column’s childrenRect property. We exposed text and image source properties, and a clicked signal. We also wanted the text to be as wide as the image, and for it to wrap. We achieve the latter by using the Text element's `wrapMode` property.
 
-::: tip Parent/child geometry dependency
+{% hint style="info" %} Parent/child geometry dependency
 Due to the inversion of the geometry-dependency (parent geometry depends on child geometry), we can’t set a `width`/`height` on the ClickableImageV2, as this will break our `width`/`height` binding. 
 
 You should prefer the child’s geometry to depend on the parent’s geometry if the item is more like a container for other items and should adapt to the parent's geometry.
-:::
+{% endhint %}
 
 ## The objects ascending
 
@@ -242,7 +242,7 @@ We need to define the `target`, which is the element to be animated, along with 
 
 A click on the background will reset all objects to their initial position. The first object cannot be restarted except by re-starting the program which triggers the re-loading of the element.
 
-::: tip Other ways to control Animations
+{% hint style="info" %} Other ways to control Animations
 
 Another way to start/stop an animation is to bind a property to the `running` property of an animation. This is especially useful when the user-input is in control of properties:
 
@@ -256,7 +256,7 @@ MouseArea {
     id: area
 }
 ```
-:::
+{% endhint %}
 
 ## Easing Curves
 
@@ -266,10 +266,10 @@ All animations we have defined by now use a linear interpolation because the ini
 
 Easing types should be carefully chosen to support a natural fit for a moving object. For example, when a page slides out, the page should initially slide out slowly and then gain momentum to finally slide out at high speed, similar to turning the page of a book.
 
-:::tip Animations should not be overused. 
+{% hint style="info" %} Animations should not be overused. 
 
 As with other aspects of UI design, animations should be designed carefully to support the UI flow, not dominate it. The eye is very sensitive to moving objects and animations can easily distract the user.
-:::
+{% endhint %}
 
 In the next example, we will try some easing curves. Each easing curve is displayed by a clickable image and, when clicked, will set a new easing type on the `square` animation and then trigger a `restart()` to run the animation with the new curve.
 
@@ -277,9 +277,9 @@ In the next example, we will try some easing curves. Each easing curve is displa
 
 The code for this example was made a little bit more complicated. We first create a grid of `EasingTypes` and a `Box` which is controlled by the easing types. An easing type just displays the curve which the box shall use for its animation. When the user clicks on an easing curve the box moves in a direction according to the easing curve. The animation itself is a standalone animation with the target set to the box and configured for x-property animation with a duration of 2 seconds.
 
-::: tip
+{% hint style="info" %}
 The internals of the EasingType renders the curve in real time, and the interested reader can look it up in the `EasingCurves` example.
-:::
+{% endhint %}
 
 ```qml
 // EasingCurves.qml
@@ -413,10 +413,10 @@ Besides the `duration` and `easing.type`, you are able to fine-tune animations. 
 
 Not all easing curves support these parameters. Please consult the [easing table](http://doc.qt.io/qt-6/qml-qtquick-propertyanimation.html#easing-prop) from the `PropertyAnimation` documentation to check if an easing parameter has an influence on an easing curve.
 
-::: tip Choose the right Animation
+{% hint style="info" %} Choose the right Animation
 
 Choosing the right animation for the element in the user interface context is crucial for the outcome. Remember the animation shall support the UI flow; not irritate the user.
-:::
+{% endhint %}
 
 ## Grouped Animations
 

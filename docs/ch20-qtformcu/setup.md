@@ -13,13 +13,13 @@ Once you have setup your environment, you can find the supported boards as _Kits
 ![](./assets/kits.png)
 ![](./assets/devices.png)
 
-::: tip
+{% hint style="info" %}
 If you do not find the MCUs tab under Tools, make sure that the Qt for MCUs plugins (McuSupport and BaremetalSupport) are available and activated under _Help - About Plugins..._.
-:::
+{% endhint %}
 
-::: tip Links
+{% hint style="info" %} Links
 Further reading at qt.io:
 
 * [Supported boards](https://doc.qt.io/QtForMCUs/qtul-supported-platforms.html)
 * [Platform porting guide](https://doc.qt.io/QtForMCUs/platform-porting-guide-introduction.html)
-:::
+{% endhint %}

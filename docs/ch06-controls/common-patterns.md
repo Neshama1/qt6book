@@ -273,9 +273,9 @@ Page {
 
 The back button explicitly calls the `setCurrentIndex` of the `SwipeView` to set the index to zero, returning the user directly to the *Current* page. During each transition between pages the `SwipeView` provides a transition, so even when explicitly changing the index the user is given a sense of direction.
 
-::: tip
+{% hint style="info" %}
 When navigating in a `SwipeView` programatically it is important not to set the `currentIndex` by assignment in JavaScript. This is because doing so will break any QML bindings it overrides. Instead use the methods `setCurrentIndex`, `incrementCurrentIndex`, and `decrementCurrentIndex`. This preserves the QML bindings.
-:::
+{% endhint %}
 
 ```qml
 Page {
@@ -396,9 +396,9 @@ Looking at the *Open* item, we see that it calls the `openDocument` function. Th
 
 In the `onAccepted` handler a new document window is instantiated using the `createNewDocument` method, and a file name is set before the window is shown. In this case, no real loading takes place.
 
-::: tip
+{% hint style="info" %}
 We imported the `Qt.labs.platform` module as `NativeDialogs`. This is because it provides a `MenuItem` that clashes with the `MenuItem` provided by the `QtQuick.Controls` module.
-:::
+{% endhint %}
 
 ```qml
 ApplicationWindow {

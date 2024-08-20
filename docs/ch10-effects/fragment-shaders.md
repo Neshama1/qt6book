@@ -36,9 +36,9 @@ In the fragment shader, we pick the texture fragment `texture(source, qt_TexCoor
 
 It’s not really nice to hard code the red channel value, so we would like to control the value from the QML side. For this we add a *redChannel* property to our shader effect and also declare a `float redChannel` inside the uniform buffer of the fragment shader. That is all that we need to do to make a value from the QML side available to the shader code.
 
-::: tip
+{% hint style="info" %}
 Notice that the `redChannel` must come after the implicit `qt_Matrix` and `qt_Opacity` in the uniform buffer, `ubuf`. The order of the parameters after the `qt_` parameters is up to you, but `qt_Matrix` and `qt_Opacity` must come first and in that order.
-:::
+{% endhint %}
 
 <<< @/docs/ch10-effects/src/effects/redlense/2/red3.frag#M1{11}
 

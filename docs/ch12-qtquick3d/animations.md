@@ -106,7 +106,7 @@ SequentialAnimation {
 }
 ```
 
-::: tip Caveat In order to be able to access the `Joint`'s `eulerRotation.y` from outside of the `Monkey_with_bones` file, we need to expose it as a top level property alias. This means modifying a generated file, which is not very nice, but it solves the problem.
+{% hint style="info" %} Caveat In order to be able to access the `Joint`'s `eulerRotation.y` from outside of the `Monkey_with_bones` file, we need to expose it as a top level property alias. This means modifying a generated file, which is not very nice, but it solves the problem.
 
 ```
 Node {

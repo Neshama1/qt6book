@@ -2,9 +2,9 @@
 
 OAuth is an open protocol to allow secure authorization in a simple and standard method from web, mobile, and desktop applications. OAuth is used to authenticate a client against common web-services such as Google, Facebook, and Twitter.
 
-::: tip
+{% hint style="info" %}
 For a custom web-service you could also use the standard HTTP authentication for example by using the `XMLHttpRequest` username and password in the get method (e.g. `xhr.open(verb, url, true, username, password)`)
-:::
+{% endhint %}
 
 OAuth is currently not part of a QML/JS API. So you would need to write some C++ code and export the authentication to QML/JS. Another issue would be the secure storage of the access token.
 
@@ -94,9 +94,9 @@ Component.onCompleted: {
 }
 ```
 
-:::tip
+{% hint style="info" %}
 Please note that for security reasons, the API credentials should never be put directly into a QML file!
-:::
+{% endhint %}
 
 Until the authorization is provided, a busy indicator will be displayed in the center of the app:
 

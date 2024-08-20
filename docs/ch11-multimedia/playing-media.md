@@ -80,9 +80,9 @@ In this example, the `MediaPlayer` defines a third attribute:
 
 - `videoOutput`: it contains the video output channel, `VideoOutput`, representing the visual space reserved to display the video in the user interface.
 
-::: warning
+{% hint style="warning" %}
 Please note that the `VideoOutput` component is a visual item. As such, it's essential that it is created within the visual components hierarchy and not within the `MediaPlayer` itself.
-:::
+{% endhint %}
 
 
 ## Controlling the playback
@@ -228,12 +228,12 @@ Button {
 
 Depending on the playback state, a different text will be displayed in the button. When clicked, the corresponding action will be triggered and will either play or pause the media.
 
-::: tip
+{% hint style="info" %}
 The possible playback states are listed below: 
 * `MediaPlayer.PlayingState`: The media is currently playing.
 * `MediaPlayer.PausedState`: Playback of the media has been suspended.
 * `MediaPlayer.StoppedState`: Playback of the media is yet to begin.
-::: 
+{% endhint %} 
 
 
 ### Interactive progress slider
@@ -312,6 +312,6 @@ When using `MediaPlayer` to build a media player, it is good to monitor the `sta
 
 As mentioned in the bullets above, the playback state can vary over time. Calling `play`, `pause` or `stop` alters the state, but the media in question can also have an effect. For example, the end can be reached, or it can be invalid, causing playback to stop. 
 
-::: tip
+{% hint style="info" %}
 It is also possible to let the `MediaPlayer` to loop a media item. The `loops` property controls how many times the `source` is to be played. Setting the property to `MediaPlayer.Infinite` causes endless looping. Great for continuous animations or a looping background song.
-:::
+{% endhint %}

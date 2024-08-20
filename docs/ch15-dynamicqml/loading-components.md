@@ -64,9 +64,9 @@ To use the `Flasher`, simply instantiate a Flasher within each MouseArea, and it
 
 When using a `Connections` element to monitor the signals of multiple types of `target` elements, you sometimes find yourself in a situation where the available signals vary between the targets. This results in the `Connections` element outputting run-time errors as signals are missed. To avoid this, the `ignoreUnknownSignal` property can be set to `true`. This ignores all such errors.
 
-::: tip
+{% hint style="info" %}
 It is usually a bad idea to suppress error messages, and if you do, make sure to document why in a comment.
-:::
+{% endhint %}
 
 ### Binding Indirectly
 

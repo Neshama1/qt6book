@@ -4,6 +4,6 @@ The Qt Kit is probably the most difficult aspect when it comes to working with Q
 
 Adding a kit and registering a Qt version is done in the `Settings ‣ Build & Run` entry. There you can also see which compilers are registered.
 
-::: tip
+{% hint style="info" %}
 Please first check if your Qt Creator has already the correct Qt version registered and then ensure a Kit for your combination of compiler and Qt and device is specified. **You can not build a project without a kit.**
-:::
+{% endhint %}

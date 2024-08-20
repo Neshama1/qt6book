@@ -158,9 +158,9 @@ The `ListDelegate` is a custom type to display some text. The `ListHighlight` is
 
 The view can now display a list of strings using the C++ model and the display property of the model. It is still very simple, but already usable in QML. Normally the data is provided from outside the model and the model would act as an interface to the view.
 
-::: tip
+{% hint style="info" %}
 To expose a table of data instead of a list, the `QAbstractTableModel` is used. The only difference compared to implementing a `QAbstractListModel` is that you must also provide the `columnCount` method.
-:::
+{% endhint %}
 
 ## More Complex Data
 

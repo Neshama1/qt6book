@@ -45,7 +45,7 @@ Qt Quick Controls 2 is available from the `QtQuick.Controls` import. The followi
 * **`QtQuick.Controls.Universal`** - Universal style theming support.
 * **`Qt.labs.platform`** - Support for platform native dialogs for common tasks such as picking files, colours, etc, as well as system tray icons and standard paths.
 
-:::warning Qt.Labs
+{% hint style="warning" %} Qt.Labs
 Notice that the `Qt.labs` modules are experimental, meaning that their APIs can have breaking changes between Qt versions.
-:::
+{% endhint %}
 

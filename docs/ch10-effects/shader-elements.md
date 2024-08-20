@@ -29,8 +29,8 @@ qsb --glsl 100es,120,150 --hlsl 50 --msl 12 -b -o default.vert.qsb default.vert
 
 The `qsb` tool is located in the `bin` directory of your Qt 6 installation.
 
-::: tip
+{% hint style="info" %}
 If you don’t want to see the source image and only the effected image you can set the *Image* to invisible (\`\` visible: false\`\`). The shader effects will still use the image data just the *Image* element will not be rendered.
-:::
+{% endhint %}
 
 In the next examples, we will be playing around with some simple shader mechanics. First, we concentrate on the fragment shader and then we will come back to the vertex shader.

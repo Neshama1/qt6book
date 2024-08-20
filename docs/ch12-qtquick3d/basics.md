@@ -119,7 +119,7 @@ These are all shown in the illustration below. (top-left: Cube, top-right: Cone,
 
 ![image](assets/meshes.png)
 
-::: tip Tip One caveat is that the `#Rectangle` is one-sided. That means that it is only visible from one direction. This means that the `eulerRotation` property is important. :::
+{% hint style="info" %} Tip One caveat is that the `#Rectangle` is one-sided. That means that it is only visible from one direction. This means that the `eulerRotation` property is important. {% endhint %}
 
 When working with real scenes, the meshes are exported from a design tool and then imported into the Qt Quick 3D scene. We look at this in more detail in the [Working with Assets](assets.md) section.
 

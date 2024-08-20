@@ -6,9 +6,9 @@ When running QML, it is being executed inside of a run-time environment. The run
 
 In the example, the `QGuiApplication` encapsulates all that is related to the application instance (e.g. application name, command line arguments and managing the event loop). The `QQmlApplicationEngine` manages the hierarchical order of contexts and components. It requires typical a QML file to be loaded as the starting point of your application. In this case, it is a `main.qml` containing a window and a text type.
 
-::: tip
+{% hint style="info" %}
 Loading a `main.qml` with a simple `Item` as the root type through the `QmlApplicationEngine` will not show anything on your display, as it requires a window to manage a surface for rendering. The engine is capable of loading QML code which does not contain any user interface (e.g plain objects). Because of this, it does not create a window for you by default. The `qml` runtime will internally first check if the main QML file contains a window as a root item and if not create one for you and set the root item as a child to the newly created window.
-:::
+{% endhint %}
 
 <<< @/docs/ch17-extensions/src/basicmain/main.qml
 
@@ -46,9 +46,9 @@ engine.rootContext().setContextProperty("current", current.value())
 engine.load(source);
 ```
 
-::: tip
+{% hint style="info" %}
 Do not mix up `setContextProperty()` and `setProperty()`. The first one sets a context property on a qml context, and `setProperty()` sets a dynamic property value on a `QObject` and will not help you.
-:::
+{% endhint %}
 
 Now you can use the current property everywhere in your application. It is availabe everywhere in the  QML code thanks to context inheritance. The `current` object is registered in the outermost root context, which is inherited everywhere.
 

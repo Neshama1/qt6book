@@ -43,7 +43,7 @@ This produces a horizontal stroked line from point `P1(50,50)` to point `P2(150,
 
 ![image](./assets/line.png)
 
-::: tip
+{% hint style="info" %}
 Typically you always want to set a start point when you reset your path, so the first operation after `beginPath` is often `moveTo`.
-:::
+{% endhint %}
 

@@ -4,9 +4,9 @@ QML is a declarative language used to describe how objects relate to each other.
 
 In its simplest form, QtQuick lets you create a hierarchy of elements. Child elements inherit the coordinate system from the parent. An `x,y` coordinate is always relative to the parent.
 
-::: tip
+{% hint style="info" %}
 QtQuick builds on QML. The QML language only knows of elements, properties, signals and bindings. QtQuick is a framework built on QML. Using default properties, the hierarchy of QtQuick elements can be constructed in an elegant way.
-:::
+{% endhint %}
 
 ![](./assets/scene.png)
 
@@ -66,11 +66,11 @@ Rectangle {
 
 With the `import` statement you import a QML module by name. In Qt5 you had to specify a major and minor version (e.g. `2.15`), this is now optional in Qt6. For the book content we drop this optional version number as normally you automatically want to choose the newest version available from your selected Qt Kit.
 
-::: tip
+{% hint style="info" %}
 Often you want to access a particular element by id or a parent element using the `parent` keyword. So it’s good practice to name your root element “root” using `id: root`. Then you don’t have to think about how the root element is named in your QML document.
-:::
+{% endhint %}
 
-::: tip
+{% hint style="info" %}
 You can run the example using the Qt Quick runtime from the command line from your OS like this:
 
     $ $QTDIR/bin/qml RectangleExample.qml
@@ -78,7 +78,7 @@ You can run the example using the Qt Quick runtime from the command line from yo
 Where you need to replace the `$QTDIR` to the path to your Qt installation. The `qml` executable initializes the Qt Quick runtime and interprets the provided QML file.
 
 In Qt Creator, you can open the corresponding project file and run the document  `RectangleExample.qml`.
-:::
+{% endhint %}
 
 ## Properties
 
@@ -133,9 +133,9 @@ Let’s go through the different features of properties:
 
 * **(4)** Adding new properties to an element is done using the `property` qualifier followed by the type, the name and the optional initial value (`property <type> <name> : <value>`). If no initial value is given, a default initial value is chosen.
 
-::: tip
+{% hint style="info" %}
 You can also declare one property to be the default property using `default` keyword. If another element is created inside the element and not explicitly bound to a property, it is bound to the default property. For instance, This is used when you add child elements. The child elements are added automatically to the default property `children` of type list if they are visible elements.
-:::
+{% endhint %}
 
 * **(5)** Another important way of declaring properties is using the `alias` keyword (`property alias <name>: <reference>`). The `alias` keyword allows us to forward a property of an object or an object itself from within the type to an outer scope. We will use this technique later when defining components to export the inner properties or element ids to the root level. A property alias does not need a type, it uses the type of the referenced property or object.
 
@@ -150,9 +150,9 @@ You can also declare one property to be the default property using `default` key
 
 * **(9)** For every property, you can provide a signal handler. This handler is called after the property changes. For example, here we want to be notified whenever the height changes and use the built-in console to log a message to the system.
 
-::: warning
+{% hint style="warning" %}
 An element id should only be used to reference elements inside your document (e.g. the current file). QML provides a mechanism called "dynamic scoping", where documents loaded later on overwrite the element IDs from documents loaded earlier. This makes it possible to reference element IDs from previously loaded documents if they have not yet been overwritten. It’s like creating global variables. Unfortunately, this frequently leads to really bad code in practice, where the program depends on the order of execution. Unfortunately, this can’t be turned off. Please only use this with care; or, even better, don’t use this mechanism at all. It’s better to export the element you want to provide to the outside world using properties on the root element of your document.
-:::
+{% endhint %}
 
 ## Scripting
 
