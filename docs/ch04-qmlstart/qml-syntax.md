@@ -1,6 +1,6 @@
 # QML Syntax
 
-QML is a declarative language used to describe how objects relate to each other. QtQuick is a framework built on QML for building the user interface of your application. It breaks down the user interface into smaller elements, which can be combined into components. QtQuick describes the look and the behavior of these user interface elements. This user interface description can be enriched with JavaScript code to provide simple but also more complex logic. In this perspective, it follows the HTML-JavaScript pattern but QML and QtQuick are designed from the ground up to describe user interfaces, not text-documents.
+QML is a declarative language used to describe how objects relate to each other. QtQuick is a framework built on QML for buidling the user interface of your application. It breaks down the user interface into smaller elements, which can be combined into components. QtQuick describes the look and the behavior of these user interface elements. This user interface description can be enriched with JavaScript code to provide simple but also more complex logic. In this perspective, it follows the HTML-JavaScript pattern but QML and QtQuick are designed from the ground up to describe user interfaces, not text-documents.
 
 In its simplest form, QtQuick lets you create a hierarchy of elements. Child elements inherit the coordinate system from the parent. An `x,y` coordinate is always relative to the parent.
 
@@ -12,10 +12,52 @@ QtQuick builds on QML. The QML language only knows of elements, properties, sign
 
 Let’s start with a simple example of a QML file to explain the different syntax.
 
-<<< @/docs/ch04-qmlstart/src/concepts/RectangleExample.qml#global
+```qml
+// RectangleExample.qml
+
+import QtQuick
+
+// The root element is the Rectangle
+Rectangle {
+    // name this element root
+    id: root
+
+    // properties: <name>: <value>
+    width: 120; height: 240
+
+    // color property
+    color: "#4A4A4A"
+
+    // Declare a nested element (child of root)
+    Image {
+        id: triangle
+
+        // reference the parent
+        x: (parent.width - width)/2; y: 40
+
+        source: 'assets/triangle_red.png'
+    }
+
+    // Another child of root
+    Text {
+        // un-named element
+
+        // reference element by id
+        y: triangle.y + triangle.height + 20
+
+        // reference root element
+        width: root.width
+
+        color: 'white'
+        horizontalAlignment: Text.AlignHCenter
+        text: 'Triangle'
+    }
+}
+```
+
 
 * The `import` statement imports a module. An optional version in the form of `<major>.<minor>` can be added.
-* Comments can be made using `//` for single line comments or `/* */` for multi-line comments. Just like in C/C++ and JavaScript
+* Comments can be made using `//` for single line comments or `/\* \*/` for multi-line comments. Just like in C/C++ and JavaScript
 * Every QML file needs to have exactly one root element, like HTML
 * An element is declared by its type followed by `{ }`
 * Elements can have properties, they are in the form `name: value`
@@ -116,7 +158,42 @@ An element id should only be used to reference elements inside your document (e.
 
 QML and JavaScript (also known as ECMAScript) are best friends. In the *JavaScript* chapter we will go into more detail on this symbiosis. Currently, we just want to make you aware of this relationship.
 
-<<< @/docs/ch04-qmlstart/src/concepts/ScriptingExample.qml#text
+```qml
+Text {
+    id: label
+
+    x: 24; y: 24
+
+    // custom counter property for space presses
+    property int spacePresses: 0
+
+    text: "Space pressed: " + spacePresses + " times"
+
+    // (1) handler for text changes. Need to use function to capture parameters
+    onTextChanged: function(text) { 
+        console.log("text changed to:", text)
+    }
+
+    // need focus to receive key events
+    focus: true
+
+    // (2) handler with some JS
+    Keys.onSpacePressed: {
+        increment()
+    }
+
+    // clear the text on escape
+    Keys.onEscapePressed: {
+        label.text = ''
+    }
+
+    // (3) a JS function
+    function increment() {
+        spacePresses = spacePresses + 1
+    }
+}
+```
+
 
 * **(1)** The text changed handler `onTextChanged` prints the current text every time the text changed due to the space bar being pressed. As we use a parameter injected by the signal, we need to use the function syntax here. It's also possible to use an arrow function (`(text) => {}`), but we feel `function(text) {}` is more readable.
 
@@ -124,7 +201,7 @@ QML and JavaScript (also known as ECMAScript) are best friends. In the *JavaScri
 * **(2)** When the text element receives the space key (because the user pressed the space bar on the keyboard) we call a JavaScript function `increment()`.
 
 
-* **(3)** Definition of a JavaScript function in the form of `function <name>(<parameters>) { ... }`, which increments our counter `spacePresses`. Every time `spacePresses` is incremented, bound properties will also be updated.
+* **(3)** Definition of a JavaScript function in the form of `function <name>(<parameters>) { ... }`, which increments our counter `spacePressed`. Every time `spacePressed` is incremented, bound properties will also be updated.
 
 ## Binding
 
@@ -132,8 +209,11 @@ The difference between the QML `:` (binding) and the JavaScript `=` (assignment)
 
 The lifetime of a binding ends when a new binding is set on the property or even when a JavaScript value is assigned to the property. For example, a key handler setting the text property to an empty string would destroy our increment display:
 
-<<< @/docs/ch04-qmlstart/src/concepts/ScriptingExample.qml#clear-binding{2}
-
+```qml
+Keys.onEscapePressed: {
+    label.text = ''
+}
+```
 
 After pressing escape, pressing the space bar will not update the display anymore, as the previous binding of the `text` property (*text: “Space pressed: ” + spacePresses + ” times”*) was destroyed.
 

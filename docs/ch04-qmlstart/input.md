@@ -169,7 +169,7 @@ Pressing the tab key now successfully switches the focus between the 2 component
 
 ## TextEdit
 
-The `TextEdit` is very similar to `TextInput`, and supports a multi-line text edit field. It doesn’t have the text constraint properties, as this depends on querying the content size of the text (`contentHeight`, `contentWidth`). We also create our own component called `TTextEdit` to provide an editing background and use the focus scope for better focus forwarding.
+The `TextEdit` is very similar to `TextInput`, and supports a multi-line text edit field. It doesn’t have the text constraint properties, as this depends on querying the painted size of the text (`paintedHeight`, `paintedWidth`). We also create our own component called `TTextEdit` to provide an editing background and use the focus scope for better focus forwarding.
 
 ```qml
 // TTextEdit.qml
@@ -225,7 +225,36 @@ Rectangle {
 
 The attached property `Keys` allows executing code based on certain key presses. For example, to move and scale a square, we can hook into the up, down, left and right keys to translate the element, and the plus and minus keys to scale the element.
 
-<<< @/docs/ch04-qmlstart/src/input/KeysExample.qml#global
+```qml
+// keys.qml
+
+import QtQuick
+
+DarkSquare {
+    width: 400; height: 200
+
+    GreenSquare {
+        id: square
+        x: 8; y: 8
+    }
+    focus: true
+    Keys.onLeftPressed: square.x -= 8
+    Keys.onRightPressed: square.x += 8
+    Keys.onUpPressed: square.y -= 8
+    Keys.onDownPressed: square.y += 8
+    Keys.onPressed: {
+        switch(event.key) {
+            case Qt.Key_Plus:
+                square.scale += 0.2
+                break;
+            case Qt.Key_Minus:
+                square.scale -= 0.2
+                break;
+        }
+
+    }
+}
+```
 
 ![](./assets/keys.png)
 

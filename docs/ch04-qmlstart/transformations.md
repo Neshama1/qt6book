@@ -8,14 +8,29 @@ A simple translation is done via changing the `x,y` position. A rotation is done
 
 Before we show off the example I would like to introduce a little helper: the `ClickableImage` element. The `ClickableImage` is just an image with a mouse area. This brings up a useful rule of thumb - if you have copied a chunk of code three times, extract it into a component.
 
-<<< @/docs/ch04-qmlstart/src/transformation/ClickableImage.qml#global
+```qml
+// ClickableImage.qml
+// Simple image which can be clicked
+
+import QtQuick
+
+Image {
+    id: root
+    signal clicked
+
+    MouseArea {
+        anchors.fill: parent
+        onClicked: root.clicked()
+    }
+}
+```
 
 ![](./assets/objects.png)
 
 
 We use our clickable image to present three objects (box, circle, triangle). Each object performs a simple transformation when clicked. Clicking the background will reset the scene.
 
-<<< @/docs/ch04-qmlstart/src/transformation/TransformationExample.qml#no-tests
+<<< @/docs/ch04-qmlstart/src/transformation/TransformationExample.qml#M1
 
 ![](./assets/objects_transformed.png)
 

@@ -8,7 +8,7 @@ You use the API by first creating a database object and then creating transactio
 
 For example, to read from a simple notes table with a text column you could use the local storage like this:
 
-<<< @/docs/ch14-storage/src/db-snippet/main.qml#global
+<<< @/docs/ch13-storage/src/db-snippet/main.qml#M1
 
 ## Crazy Rectangle
 
@@ -16,9 +16,9 @@ As an example assume we would like to store the position of a rectangle on our s
 
 ![image](./images/crazy_rect.png)
 
-Here is the base of the example. It contains a rectangle called `crazy` that is draggable and shows its current `x` and `y` position as text.
+Here is the base of the example. It contains a rectange called `crazy` that is draggable and shows its current `x` and `y` position as text.
 
-<<< @/docs/ch14-storage/src/rectangle/main.qml#M1
+<<< @/docs/ch13-storage/src/rectangle/main.qml#M1
 
 You can drag the rectangle freely around. When you close the application and launch it again the rectangle is at the same position.
 
@@ -30,7 +30,7 @@ import QtQuick.LocalStorage 2.0
 
 Item {
     // reference to the database object
-    property var db
+    property var db;
 
     function initDatabase() {
         // initialize the database object
@@ -44,13 +44,14 @@ Item {
         // reads and applies data from DB
     }
 
+
     Component.onCompleted: {
-        initDatabase()
-        readData()
+        initDatabase();
+        readData();
     }
 
     Component.onDestruction: {
-        storeData()
+        storeData();
     }
 }
 ```
@@ -59,19 +60,19 @@ You could also extract the DB code in an own JS library, which does all the logi
 
 In the database initialization function, we create the DB object and ensure the SQL table is created. Notice that the database functions are quite talkative so that you can follow along on the console.
 
-<<< @/docs/ch14-storage/src/rectangle/main.qml#M2
+<<< @/docs/ch13-storage/src/rectangle/main.qml#M2
 
 The application next calls the read function to read existing data back from the database. Here we need to differentiate if there is already data in the table. To check we look into how many rows the select clause has returned.
 
-<<< @/docs/ch14-storage/src/rectangle/main.qml#M4
+<<< @/docs/ch13-storage/src/rectangle/main.qml#M4
 
 We expect the data is stored in a JSON string inside the value column. This is not typical SQL like, but works nicely with JS code. So instead of storing the x,y as properties in the table, we store them as a complete JS object using the JSON stringify/parse methods. In the end, we get a valid JS object with x and y properties, which we can apply on our crazy rectangle.
 
 To store the data, we need to differentiate the update and insert cases. We use update when a record already exists and insert if no record under the name “crazy” exists.
 
-<<< @/docs/ch14-storage/src/rectangle/main.qml#M3
+<<< @/docs/ch13-storage/src/rectangle/main.qml#M3
 
-Instead of selecting the whole recordset we could also use the SQLite count function like this: `SELECT COUNT(*) from data where name = "crazy"` which would return use one row with the number of rows affected by the select query. Otherwise, this is common SQL code. As an additional feature, we use the SQL value binding using the `?` in the query.
+Instead of selecting the whole recordset we could also use the SQLite count function like this: `SELECT COUNT(\*) from data where name = "crazy"` which would return use one row with the number of rows affected by the select query. Otherwise, this is common SQL code. As an additional feature, we use the SQL value binding using the `?` in the query.
 
 Now you can drag the rectangle and when you quit the application the database stores the x/y position and applies it on the next application run.
 

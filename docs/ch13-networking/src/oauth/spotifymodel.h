@@ -29,10 +29,10 @@ public:
     }
 
     enum {
-        NameRole = Qt::UserRole + 1,    // The artist's name
-        ImageURLRole,                   // The artist's image
-        FollowersCountRole,             // The artist's followers count
-        HrefRole,                       // The link to the artist's page
+        NameRole = Qt::UserRole + 1,
+        ImageURLRole,
+        FollowersCountRole,
+        HrefRole,
     };
 
     QHash<int, QByteArray> roleNames() const override;

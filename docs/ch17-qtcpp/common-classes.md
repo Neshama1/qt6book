@@ -10,19 +10,19 @@ In general, text handling in Qt is Unicode based. For this, you use the `QString
 
 Below are some examples of how to use the `QString` class. QString can be created on the stack but it stores its data on the heap. Also when assigning one string to another, the data will not be copied - only a reference to the data. So this is really cheap and lets the developer concentrate on the code and not on the memory handling. `QString` uses reference counters to know when the data can be safely deleted. This feature is called [Implicit Sharing](http://doc.qt.io/qt-6/implicit-sharing.html) and it is used in many Qt classes.
 
-<<< @/docs/ch17-qtcpp/src/qtfoundation/tst_foundation.cpp#M1
+<<< @/docs/ch16-qtcpp/src/qtfoundation/tst_foundation.cpp#M1
 
 Below you can see how to convert a number to a string and back. There are also conversion functions for float or double and other types. Just look for the function in the Qt documentation used here and you will find the others.
 
-<<< @/docs/ch17-qtcpp/src/qtfoundation/tst_foundation.cpp#M2
+<<< @/docs/ch16-qtcpp/src/qtfoundation/tst_foundation.cpp#M2
 
 Often in a text, you need to have parameterized text. One option could be to use `QString("Hello" + name)` but a more flexible method is the `arg` marker approach.  It preserves the order also during translation when the order might change.
 
-<<< @/docs/ch17-qtcpp/src/qtfoundation/tst_foundation.cpp#M3
+<<< @/docs/ch16-qtcpp/src/qtfoundation/tst_foundation.cpp#M3
 
 Sometimes you want to use Unicode characters directly in your code. For this, you need to remember how to mark them for the `QChar` and `QString` classes.
 
-<<< @/docs/ch17-qtcpp/src/qtfoundation/tst_foundation.cpp#M4
+<<< @/docs/ch16-qtcpp/src/qtfoundation/tst_foundation.cpp#M4
 
 This gives you some examples of how to easily treat Unicode aware text in Qt. For non-Unicode, the `QByteArray` class also has many helper functions for conversion. Please read the Qt documentation for `QString` as it contains tons of good examples.
 
@@ -32,13 +32,13 @@ A list, queue, vector or linked-list is a sequential container. The mostly used 
 
 The `QList` is as versatile as the `QString` class and offers a great API to explore your data. Below is a small example of how to use and iterate over a list using some new C++ 11 features.
 
-<<< @/docs/ch17-qtcpp/src/qtfoundation/tst_foundation.cpp#M5
+<<< @/docs/ch16-qtcpp/src/qtfoundation/tst_foundation.cpp#M5
 
 ## Associative Containers
 
 A map, a dictionary, or a set are examples of associative containers. They store a value using a key. They are known for their fast lookup. We demonstrate the use of the most used associative container the `QHash` also demonstrating some new C++ 11 features.
 
-<<< @/docs/ch17-qtcpp/src/qtfoundation/tst_foundation.cpp#M6
+<<< @/docs/ch16-qtcpp/src/qtfoundation/tst_foundation.cpp#M6
 
 ## File IO
 
@@ -46,7 +46,7 @@ It is often required to read and write from files. `QFile` is actually a `QObjec
 
 Besides reading raw data from a file into a `QByteArray` you can also read data types using the `QDataStream` and Unicode string using the `QTextStream`. We will show you how.
 
-<<< @/docs/ch17-qtcpp/src/qtfoundation/tst_foundation.cpp#M7
+<<< @/docs/ch16-qtcpp/src/qtfoundation/tst_foundation.cpp#M7
 
 ## More Classes
 
@@ -58,7 +58,7 @@ Here some classes whose documentation the author thinks are a must read:
 * [QTextStream](http://doc.qt.io/qt-6/qtextstream.html), [QDataStream](http://doc.qt.io/qt-6/qdatastream.html) 
 * [QDebug](http://doc.qt.io/qt-6/qdebug.html), [QLoggingCategory](http://doc.qt.io/qt-6/qloggingcategory.html)
 * [QTcpServer](http://doc.qt.io/qt-6/qtcpserver.html), [QTcpSocket](http://doc.qt.io/qt-6/qtcpsocket.html), [QNetworkRequest](http://doc.qt.io/qt-6/qnetworkrequest.html), [QNetworkReply](http://doc.qt.io/qt-6/qnetworkreply.html)
-* [QAbstractItemModel](http://doc.qt.io/qt-6/qabstractitemmodel.html), [QRegularExpression](http://doc.qt.io/qt-6/qregularexpression.html)
+* [QAbstractItemModel](http://doc.qt.io/qt-6/qabstractitemmodel.html), [QRegExp](http://doc.qt.io/qt-6/qregexp.html)
 * [QList](http://doc.qt.io/qt-6/qlist.html), [QHash](http://doc.qt.io/qt-6/qhash.html)
 * [QThread](http://doc.qt.io/qt-6/qthread.html), [QProcess](http://doc.qt.io/qt-6/qprocess.html)
 * [QJsonDocument](http://doc.qt.io/qt-6/qjsondocument.html), [QJSValue](http://doc.qt.io/qt-6/qjsvalue.html)

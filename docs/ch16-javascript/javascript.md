@@ -22,7 +22,7 @@ Button {
     checked = !checked
   }
 
-  onClicked: {
+  onTriggered: {
     // this is also JavaScript
     doToggle();
     console.log('checked: ' + checked)
@@ -44,7 +44,7 @@ Button {
     console.log("Button> " + msg);
   }
 
-  onClicked: {
+  onTriggered: {
     // this is JavaScript
     log();
     Qt.quit();
