@@ -6,17 +6,15 @@ There a number of common user interface patterns that can be implemented using Q
 
 For this example we will create a tree of pages that can be reached from the previous level of screens. The structure is pictured below.
 
-![](./assets/nested-screens.png)
+![](assets/nested-screens.png)
 
 The key component in this type of user interface is the `StackView`. It allows us to place pages on a stack which then can be popped when the user wants to go back. In the example here, we will show how this can be implemented.
 
 The initial home screen of the application is shown in the figure below.
 
-![](./assets/interface-stack-home.png)
+![](assets/interface-stack-home.png)
 
 The application starts in `main.qml`, where we have an `ApplicationWindow` containing a `ToolBar`, a `Drawer`, a `StackView` and a home page element, `Home`. We will look into each of the components below.
-
-
 
 ```qml
 import QtQuick
@@ -46,9 +44,21 @@ ApplicationWindow {
 }
 ```
 
-The home page, `Home.qml` consists of a `Page`, which is n control element that support headers and footers. In this example we simply center a `Label` with the text *Home Screen* on the page. This works because the contents of a `StackView` automatically fill the stack view, so the page will have the right size for this to work.
+The home page, `Home.qml` consists of a `Page`, which is n control element that support headers and footers. In this example we simply center a `Label` with the text _Home Screen_ on the page. This works because the contents of a `StackView` automatically fill the stack view, so the page will have the right size for this to work.
 
-<<< @/docs/ch06-controls/src/interface-stack/Home.qml
+```
+import QtQuick
+import QtQuick.Controls
+
+Page {
+    title: qsTr("Home")
+
+    Label {
+        anchors.centerIn: parent
+        text: qsTr("Home Screen")
+    }
+}
+```
 
 Returning back to `main.qml`, we now look at the drawer part. This is where the navigation to the pages begin. The active parts of the user interface are the `ÌtemDelegate` items. In the `onClicked` handler, the next page is pushed onto the `stackView`.
 
@@ -137,11 +147,9 @@ ApplicationWindow {
 }
 ```
 
-Now we’ve seen how to reach the *About* and *Profile* pages, but we also want to make it possible to reach the *Edit Profile* page from the *Profile* page. This is done via the `Button` on the *Profile* page. When the button is clicked, the `EditProfile.qml` file is pushed onto the `StackView`.
+Now we’ve seen how to reach the _About_ and _Profile_ pages, but we also want to make it possible to reach the _Edit Profile_ page from the _Profile_ page. This is done via the `Button` on the _Profile_ page. When the button is clicked, the `EditProfile.qml` file is pushed onto the `StackView`.
 
-![](./assets/interface-stack-profile.png)
-
-<<< @/docs/ch06-controls/src/interface-stack/Profile.qml
+![](assets/interface-stack-profile.png)
 
 ```qml
 import QtQuick
@@ -170,12 +178,11 @@ Page {
 
 For this example we create a user interface consisting of three pages that the user can shift through. The pages are shown in the diagram below. This could be the interface of a health tracking app, tracking the current state, the user’s statistics and the overall statistics.
 
-![](./assets/side-by-side-screen.png)
+![](assets/side-by-side-screen.png)
 
-The illustration below shows how the *Current* page looks in the application. The main part of the screen is managed by a `SwipeView`, which is what enables the side by side screen interaction pattern. The title and text shown in the figure come from the page inside the `SwipeView`, while the `PageIndicator` (the three dots at the bottom) comes from `main.qml` and sits under the `SwipeView`. The page indicator shows the user which page is currently active, which helps when navigating.
+The illustration below shows how the _Current_ page looks in the application. The main part of the screen is managed by a `SwipeView`, which is what enables the side by side screen interaction pattern. The title and text shown in the figure come from the page inside the `SwipeView`, while the `PageIndicator` (the three dots at the bottom) comes from `main.qml` and sits under the `SwipeView`. The page indicator shows the user which page is currently active, which helps when navigating.
 
-![](./assets/interface-side-by-side-current.png)
-
+![](assets/interface-side-by-side-current.png)
 
 Diving into `main.qml`, it consists of an `ApplicationWindow` with the `SwipeView`.
 
@@ -251,7 +258,7 @@ ApplicationWindow {
 }
 ```
 
-Each page consists of a `Page` with a `header` consisting of a `Label` and some contents. For the *Current* and *User Stats* pages the contents consist of a simple `Label`, but for the *Community Stats* page, a back button is included.
+Each page consists of a `Page` with a `header` consisting of a `Label` and some contents. For the _Current_ and _User Stats_ pages the contents consist of a simple `Label`, but for the _Community Stats_ page, a back button is included.
 
 ```qml
 import QtQuick
@@ -269,9 +276,9 @@ Page {
 }
 ```
 
-![](./assets/interface-side-by-side-community.png)
+![](assets/interface-side-by-side-community.png)
 
-The back button explicitly calls the `setCurrentIndex` of the `SwipeView` to set the index to zero, returning the user directly to the *Current* page. During each transition between pages the `SwipeView` provides a transition, so even when explicitly changing the index the user is given a sense of direction.
+The back button explicitly calls the `setCurrentIndex` of the `SwipeView` to set the index to zero, returning the user directly to the _Current_ page. During each transition between pages the `SwipeView` provides a transition, so even when explicitly changing the index the user is given a sense of direction.
 
 {% hint style="info" %}
 When navigating in a `SwipeView` programatically it is important not to set the `currentIndex` by assignment in JavaScript. This is because doing so will break any QML bindings it overrides. Instead use the methods `setCurrentIndex`, `incrementCurrentIndex`, and `decrementCurrentIndex`. This preserves the QML bindings.
@@ -304,8 +311,7 @@ This example shows how to implement a desktop-oriented, document-centric user in
 
 ![Two document windows and the close warning dialog.](assets/interface-document-window.png)
 
-
-The code starts from an `ApplicationWindow` with a *File* menu with the standard operations: *New*, *Open*, *Save* and *Save As*. We put this in the `DocumentWindow.qml`.
+The code starts from an `ApplicationWindow` with a _File_ menu with the standard operations: _New_, _Open_, _Save_ and _Save As_. We put this in the `DocumentWindow.qml`.
 
 We import `Qt.labs.platform` for native dialogs, and have made the subsequent changes to the project file and `main.cpp` as described in the section on native dialogs above.
 
@@ -353,8 +359,6 @@ ApplicationWindow {
 
 To bootstrap the program, we create the first `DocumentWindow` instance from `main.qml`, which is the entry point of the application.
 
-<<< @/docs/ch06-controls/src/interface-document-window/main.qml
-
 ```qml
 import QtQuick
 
@@ -363,7 +367,7 @@ DocumentWindow {
 }
 ```
 
-In the example at the beginning of this chapter, each `MenuItem` calls a corresponding function when triggered. Let’s start with the *New* item, which calls the `newDocument` function.
+In the example at the beginning of this chapter, each `MenuItem` calls a corresponding function when triggered. Let’s start with the _New_ item, which calls the `newDocument` function.
 
 The function, in turn, relies on the `createNewDocument` function, which dynamically creates a new element instance from the `DocumentWindow.qml` file, i.e. a new `DocumentWindow` instance. The reason for breaking out this part of the new function is that we use it when opening documents as well.
 
@@ -392,7 +396,7 @@ ApplicationWindow {
 }
 ```
 
-Looking at the *Open* item, we see that it calls the `openDocument` function. The function simply opens the `openDialog`, which lets the user pick a file to open. As we don’t have a document format, file extension or anything like that, the dialog has most properties set to their default value. In a real world application, this would be better configured.
+Looking at the _Open_ item, we see that it calls the `openDocument` function. The function simply opens the `openDialog`, which lets the user pick a file to open. As we don’t have a document format, file extension or anything like that, the dialog has most properties set to their default value. In a real world application, this would be better configured.
 
 In the `onAccepted` handler a new document window is instantiated using the `createNewDocument` method, and a file name is set before the window is shown. In this case, no real loading takes place.
 
@@ -430,7 +434,7 @@ The file name belongs to a pair of properties describing the document: `fileName
 
 When trying to save a document without a name, the `saveAsDocument` is invoked. This results in a round-trip over the `saveAsDialog`, which sets a file name and then tries to save again in the `onAccepted` handler.
 
-Notice that the `saveAsDocument` and `saveDocument` functions correspond to the *Save As* and *Save* menu items.
+Notice that the `saveAsDocument` and `saveDocument` functions correspond to the _Save As_ and _Save_ menu items.
 
 After having saved the document, in the `saveDocument` function, the `tryingToClose` property is checked. This flag is set if the save is the result of the user wanting to save a document when the window is being closed. As a consequence, the window is closed after the save operation has been performed. Again, no actual saving takes place in this example.
 
@@ -527,11 +531,11 @@ ApplicationWindow {
 }
 ```
 
-The entire flow for the close and save/save as logic is shown below. The system is entered at the *close* state, while the *closed* and *not closed* states are outcomes.
+The entire flow for the close and save/save as logic is shown below. The system is entered at the _close_ state, while the _closed_ and _not closed_ states are outcomes.
 
 This looks complicated compared to implementing this using `Qt Widgets` and C++. This is because the dialogs are not blocking to QML. This means that we cannot wait for the outcome of a dialog in a `switch` statement. Instead we need to remember the state and continue the operation in the respective `onYesClicked`, `onNoClicked`, `onAccepted`, and `onRejected` handlers.
 
-![](./assets/dialog-state-machine.png)
+![](assets/dialog-state-machine.png)
 
 The final piece of the puzzle is the window title. It is composed from the `fileName` and `isDirty` properties.
 
@@ -548,4 +552,3 @@ ApplicationWindow {
 ```
 
 This example is far from complete. For instance, the document is never loaded or saved. Another missing piece is handling the case of closing all the windows in one go, i.e. exiting the application. For this function, a singleton maintaining a list of all current `DocumentWindow` instances is needed. However, this would only be another way to trigger the closing of a window, so the logic flow shown here is still valid.
-
