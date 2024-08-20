@@ -1,3 +1,0 @@
-``` elixir
-IO.puts "test"
-```

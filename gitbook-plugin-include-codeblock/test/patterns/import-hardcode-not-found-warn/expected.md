@@ -1,3 +1,0 @@
-``` unknownLang
-console.log("test");
-```

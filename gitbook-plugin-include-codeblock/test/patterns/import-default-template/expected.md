@@ -1,6 +1,0 @@
-``` javascript
-foo;
-bar;
-baz;
-
-```
