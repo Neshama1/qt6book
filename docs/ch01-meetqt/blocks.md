@@ -45,9 +45,9 @@ Besides the essential modules, Qt offers additional modules that target specific
 * **Graphics**: Qt 3D / Qt Image Formats / Qt OpenGL / Qt Shader Tools / Qt SVG / Qt Wayland Compositor
 * **Helper**: Qt 5 Core Compatibility APIs / Qt Concurrent / Qt Help / Qt Print Support / Qt Quick Widgets / Qt SCXML / Qt SQL / Qt State Machine / Qt UI Tools / Qt XML
 
-::: tip
+{% hint style="info" %}
 As these modules are not part of the release, the state of each module may differ depending on how many contributors are active and how well it’s tested.
-:::
+{% endhint %}
 
 ## Supported Platforms
 

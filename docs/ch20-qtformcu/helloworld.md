@@ -95,9 +95,9 @@ In addition to what has been stated above, there are more differences. For insta
 
 Going beyond the example above, there are fewer QML elements in general in Qt Quick Ultralite, but the supported types is continuously growing. The intention is that the provided types cover the use-cases of the intended target devices. You can read more about this and general compatibility issues in the links provided below.
 
-::: tip Links
+{% hint style="info" %} Links
 Further reading at qt.io:
 * [Qt Quick Ultralite vs Qt Quick](https://doc.qt.io/QtForMCUs/qtul-qtquick-differences.html)
 * [Differences between Qt Quick Ultralite Controls and Qt Quick Controls](https://doc.qt.io/QtForMCUs/qtul-qtquick-controls-api-differences.html)
 * [Known Issues and Limitations](https://doc.qt.io/QtForMCUs/qtul-known-issues.html)
-:::
+{% endhint %}

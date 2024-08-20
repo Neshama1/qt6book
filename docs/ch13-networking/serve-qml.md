@@ -27,9 +27,9 @@ qml http://localhost:8080/RemoteComponent.qml
 
 Sweet and simple.
 
-::: tip
+{% hint style="info" %}
 If the `qml` program is not in your path, you can find it in the Qt binaries: `<qt-install-path>/<qt-version>/<your-os>/bin/qml`.
-:::
+{% endhint %}
 
 Another way of importing a remote QML document is to dynamically load it using QML ! For this, we use a `Loader` element to retrieve for us the remote document.
 
@@ -41,11 +41,11 @@ Now we can ask the `qml` executable to load the local `LocalHostExample.qml` loa
 qml LocalHostExample.qml
 ```
 
-::: tip
+{% hint style="info" %}
 If you do not want to run a local server you can also use the gist service from GitHub. The gist is a clipboard like online services like Pastebin and others. It is available under [https://gist.github.com](https://gist.github.com). For this example, I created a small gist under the URL [https://gist.github.com/jryannel/7983492](https://gist.github.com/jryannel/7983492). This will reveal a green rectangle. As the gist URL will provide the website as HTML code we need to attach a `/raw` to the URL to retrieve the raw file and not the HTML code.
 
 Since this content is hosted on a web server with a public web address, you can now use the web-based version of Canonic to view it. To do so, simply point your web browser to [https://app.canonic.com/#http://gist.github.com/jryannel/7983492](https://app.canonic.com/#http://gist.github.com/jryannel/7983492). Of course, you'll need to change the part after the `#` to view your own files.
-:::
+{% endhint %}
 
 <<< @/docs/ch13-networking/src/serve-qml-basics/GistExample.qml#global
 
@@ -99,10 +99,10 @@ By defining a `qmldir` file, it's also possible to directly import a library of 
 
 <<< @/docs/ch13-networking/src/serve-qml-networked-components/LibraryExample.qml#global
 
-::: tip
+{% hint style="info" %}
 When using components from a local file system, they are created immediately without a latency. When components are loaded via the network they are created asynchronously. This has the effect that the time of creation is unknown and an element may not yet be fully loaded when others are already completed. Take this into account when working with components loaded over the network.
-:::
+{% endhint %}
 
-::: warning
+{% endhint %} warning
 Be very cautious about loading QML components from the Internet. By doing so, you introduce the risk of accidentally downloading malicious components that will do evil things to your computer. These security risks have been [documented](https://doc.qt.io/qt-6/qtqml-documents-networktransparency.html#implications-for-application-security) by Qt. The Qt page was already linked to on this page, but the warning is worth repeating.
-:::
+{% endhint %}

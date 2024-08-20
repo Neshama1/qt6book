@@ -132,9 +132,9 @@ When you start the example now you will see the rockets are climbing up and then
 
 ![image](./assets/firework_rockets.png)
 
-::: tip
+{% hint style="info" %}
 The image shows the scene with the tracers enabled to show the different areas. Rocket particles are emitted in the red area and then affected by the turbulence in the blue area. Finally, they are slowed down by the friction affector in the green area and start falling again, because of the steady applied downwards acceleration.
-:::
+{% endhint %}
 
 ## Let there be fireworks
 
@@ -164,9 +164,9 @@ GroupGoal {
 
 The *jump* property states the change in groups shall be immediately and not after a certain duration.
 
-::: tip
+{% hint style="info" %}
 In the Qt 5 alpha release we could the *duration* for the group change not get working. Any ideas?
-:::
+{% endhint %}
 
 As the group of the rocket now changes to our ‘explosion’ particle group when the rocket particle enters the group goal area we need to add the firework inside the particle group:
 

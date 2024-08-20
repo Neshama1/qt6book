@@ -2,9 +2,9 @@
 
 As a little example, we will create a JS console. We need an input field where the user can enter his JS expressions and ideally there should be a list of output results. As this should more look like a desktop application we use the Qt Quick Controls module.
 
-::: tip
+{% hint style="info" %}
 A JS console inside your next project can be really beneficial for testing. Enhanced with a Quake-Terminal effect it is also good to impress customers. To use it wisely you need to control the scope the JS console evaluates in, e.g. the currently visible screen, the main data model, a singleton core object or all together.
-:::
+{% endhint %}
 
 
 
@@ -36,9 +36,9 @@ The evaluation function `jsCall` does the evaluation not by itself this has been
 
 <<< @/docs/ch16-javascript/src/JSConsole/JSConsole.qml#js-call
 
-::: tip
+{% hint style="info" %}
 For safety, we do not use the `eval` function from JS as this would allow the user to modify the local scope. We use the Function constructor to create a JS function on runtime and pass in our scope as this variable. As the function is created every time it does not act as a closure and stores its own scope, we need to use `this.a = 10` to store the value inside this scope of the function. This scope is set by the script to the scope variable.
-:::
+{% endhint %}
 
 ## jsconsole.js
 

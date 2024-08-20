@@ -3,9 +3,9 @@
 There are a number of QML elements used to position items. These are called positioners, of which the Qt Quick module provides the following: `Row`, `Column`, `Grid` and `Flow`. They can be seen showing the same contents in the illustration below.
 
 
-::: tip
+{% hint style="info" %}
 Before we go into details, let me introduce some helper elements: the red, blue, green, lighter and darker squares. Each of these components contains a 48x48 pixel colorized rectangle. As a reference, here is the source code for the `RedSquare`:
-:::
+{% endhint %}
 
 <<< @/docs/ch04-qmlstart/src/positioners/RedSquare.qml#global
 
@@ -45,11 +45,11 @@ In this repeater example, we use some new magic. We define our own `colorArray` 
 
 A repeater injects the `index` property into the repeater. It contains the current loop-index. (0,1,..15). We can use this to make our own decisions based on the index, or in our case to visualize the current index with the `Text` element. 
 
-::: tip
+{% hint style="info" %}
 While the `index` property is dynamically injected into the Rectangle, it is a good practice to declare it as a required property to ease readability and help tooling. This is achieved by the `required property int index` line. 
-:::
+{% endhint %}
 
-::: tip
+{% hint style="info" %}
 More advanced handling of larger models and kinetic views with dynamic delegates is covered in its own model-view chapter. Repeaters are best used when having a small amount of static data to be presented.
-:::
+{% endhint %}
 

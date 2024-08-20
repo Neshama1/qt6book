@@ -29,6 +29,6 @@ The write method does the same but opens the file in write mode and uses the str
 
 To make the type visible to QML, we add the `QML_ELEMENT` macro just after the `Q_PROPERTY` lines. This tells Qt that the type should be made available to QML. If you want to provide a different name than the C++ class, you can use the `QML_NAMED_ELEMENT` macro.
 
-::: tip
+{% hint style="info" %}
 As the reading and writing are blocking function calls you should only use this `FileIO` for small texts, otherwise, you will block the UI thread of Qt. Be warned!
-:::
+{% endhint %}

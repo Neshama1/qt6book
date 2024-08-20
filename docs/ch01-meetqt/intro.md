@@ -35,9 +35,9 @@ As QML doesn’t restrict the choice of type for the root type, we use an `Image
 
 ![](./assets/background.png)
 
-::: tip
+{% hint style="info" %}
 Each type has properties. For example, an image has the properties `width` and `height`, each holding a count of pixels. It also has other properties, such as `source`. Since the size of the image type is automatically derived from the image size, we don’t need to set the `width` and `height` properties ourselves.
-:::
+{% endhint %}
 
 The most standard types are located in the `QtQuick` module, which is made available by the import statement at the start of the `.qml` file.
 
@@ -78,13 +78,13 @@ To place the pinwheel in the middle, we use a complex property called `anchor`. 
 
 For the pinwheel, the anchoring only requires one simple anchor.
 
-::: tip
+{% hint style="info" %}
 Sometimes you will want to make small adjustments, for example, to nudge a type slightly off-center. This can be done with `anchors.horizontalCenterOffset` or with `anchors.verticalCenterOffset`. Similar adjustment properties are also available for all the other anchors. Refer to the documentation for a full list of anchors properties.
-:::
+{% endhint %}
 
-::: tip    
+{% hint style="info" %}    
 Placing an image as a child type of our root type (the `Image`) illustrates an important concept of a declarative language. You describe the visual appearance of the user interface in the order of layers and grouping, where the topmost layer (our background image) is drawn first and the child layers are drawn on top of it in the local coordinate system of the containing type.
-:::
+{% endhint %}
 
 To make the showcase a bit more interesting, let’s make the scene interactive. The idea is to rotate the wheel when the user presses the mouse somewhere in the scene.
 
@@ -104,9 +104,9 @@ Image {
 
 The mouse area emits signals when the user clicks inside the area it covers. You can connect to this signal by overriding the `onClicked` function. When a signal is connected, it means that the function (or functions) it corresponds to are called whenever the signal is emitted. In this case, we say that when there’s a mouse click in the mouse area, the type whose `id` is `wheel` (i.e., the pinwheel image) should rotate by +90 degrees.
 
-::: tip
+{% hint style="info" %}
 This technique works for every signal, with the naming convention being `on` + `SignalName` in title case. Also, all properties emit a signal when their value changes. For these signals, the naming convention is:
-:::
+{% endhint %}
 
 ```js
     `on${property}Changed`
@@ -134,9 +134,9 @@ Now, whenever the wheel’s rotation property changes, it will be animated using
 
 ![](./assets/scene2.png)
 
-::: tip
+{% hint style="info" %}
 You will not actually see the wheel blurred. This is just to indicate the rotation. (A blurred wheel is in the assets folder, in case you’d like to experiment with it.)
-:::
+{% endhint %}
 
 Now the wheel looks much better and behaves nicely, as well as providing a very brief insight into the basics of how Qt Quick programming works.
 

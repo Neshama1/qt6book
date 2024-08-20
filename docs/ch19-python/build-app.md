@@ -20,9 +20,9 @@ Executing the example results in a window with the title *Hello Python World*.
 
 ![](./assets/qml-hello-world.png)
 
-::: tip
+{% hint style="info" %}
 The example assumes that it is executed from the directory containing the `main.qml` source file. You can determine the location of the Python file being executed using the `__file__` variable. This can be used to locate the QML files relative to the Python file as shown in this [blog post](http://blog.qt.io/blog/2018/05/14/qml-qt-python/).
-:::
+{% endhint %}
 
 ## Exposing Python Objects to QML
 
@@ -210,9 +210,9 @@ In this section we will take an existing python utility for monitoring CPU load 
 
 ![](./assets/cpu-load-model.png)
 
-::: tip
+{% hint style="info" %}
 The psutil library can be found at [https://pypi.org/project/psutil/](https://pypi.org/project/psutil/) .
-:::
+{% endhint %}
 
 *“psutil (process and system utilities) is a cross-platform library for retrieving information on running processes and system utilization (CPU, memory, disks, network, sensors) in Python.”*
 

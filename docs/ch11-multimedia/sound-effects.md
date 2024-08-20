@@ -28,11 +28,11 @@ To provide between-states animation, we define two transitions:
 
 Notice the `ScriptAction { script: swosh.play(); }` line. Using the `ScriptAction` component we can run an arbitrary script as part of the animation, which allows us to play the desired sound effect as part of the animation.
 
-::: tip
+{% hint style="info" %}
 In addition to the `play` function, a number of properties similar to the ones offered by `MediaPlayer` are available. Examples are `volume` and `loops`. The latter can be set to `SoundEffect.Infinite` for infinite playback. To stop playback, call the `stop` function.
-:::
+{% endhint %}
 
-::: warning
+{% endhint %} warning
 When the PulseAudio backend is used, `stop` will not stop instantaneously, but only prevent further loops. This is due to limitations in the underlying API.
-:::
+{% endhint %}
 

@@ -4,7 +4,7 @@ Qt Creator is the default integrated development environment for Qt. It’s writ
 
 ![](./assets/qtcreator-screenshots.png)
 
-::: warning
+{% endhint %} warning
 Update screenshots!
-:::
+{% endhint %}
 

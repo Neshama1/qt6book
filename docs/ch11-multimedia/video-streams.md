@@ -16,8 +16,8 @@ Finally, when the application is loaded, we can start the camera recording:
 Component.onCompleted: captureSession.camera.start()
 ```
 
-::: tip
+{% hint style="info" %}
 Depending on your operating system, this application may require sensitive access permission(s). If you run this sample application using the `qml` binary, those permissions will be requested automatically.
 
 However, if you run it as an independant program you may need to request those permissions first (e.g.: under MacOS, you would need a dedicated .plist file bundled with your application).
-:::
+{% endhint %}

@@ -28,9 +28,9 @@ Item {
 
 A state is changed by assigning a new state name to the `state` property of the element in which the states are defined.
 
-::: tip Control states using when
+{% hint style="info" %} Control states using when
 Another way to control states is using the `when` property of the `State` element. The `when` property can be set to an expression that evaluates to true when the state should be applied.
-:::
+{% endhint %}
 
 ```qml
 Item {
@@ -63,9 +63,9 @@ To realize this scenario we start sketching our user interface for the 2 lights.
 
 As defined in the state chart we want to have two states: one being the `"go"` state and the other the `"stop"` state, where each of them changes the traffic light's respective color to red or green. We set the `state` property to `stop` to ensure the initial state of our traffic light is the `stop` state.
 
-::: tip Initial state
+{% hint style="info" %} Initial state
 We could have achieved the same effect with only a `"go"` state and no explicit `"stop"` state by setting the color of `light1` to red and the color of `light2` to black. The initial state `""` defined by the initial property values would then act as the `"stop"` state.
-:::
+{% endhint %}
 
 <<< @/docs/ch05-fluid/src/animation/StatesExample.qml#states
 
@@ -79,9 +79,9 @@ A state change is triggered using a mouse area which covers the whole traffic li
 
 We are now able to successfully change the state of the traffic lamp. To make the UI more appealing and natural, we should add some transitions with animation effects. A transition can be triggered by a state change.
 
-::: tip Using scripting
+{% hint style="info" %} Using scripting
 It’s possible to create similar logic using scripting instead of QML states. However, QML is a better language than JavaScript for describing user interfaces. Where possible, aim to write declarative code instead of imperative code.
-:::
+{% endhint %}
 
 
 ## Transitions

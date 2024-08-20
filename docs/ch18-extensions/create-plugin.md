@@ -2,9 +2,9 @@
 
 Qt Creator contains a wizard to create a **QtQuick 2 QML Extension Plugin**, found under **Library** when creating a new project. We use it to create a plugin called `fileio` with a `FileIO` object to start within the module `org.example.io`.
 
-::: tip
+{% hint style="info" %}
 The current wizard generates a QMake based project. Please use the example from this chapter as a starting point to build a CMake based project. 
-:::
+{% endhint %}
 
 The project should consist of the `fileio.h` and `fileio.cpp`, that declare and implement the `FileIO` type, and a `fileio_plugin.cpp` that contains the actual plugin class that allows the QML engine to discover out extension.
 

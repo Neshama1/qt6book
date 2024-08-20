@@ -15,6 +15,6 @@ Shader effects are applied in the graphics rendering pipeline and allows us to c
 
 Shaders are written in a shader language which is then baked and imported into the QML scene, much as other resources. These shaders can then be applied to images or other elements to create advanced visual effects.
 
-::: tip
+{% hint style="info" %}
 Working with shader effects is an advanced topic.
-:::
+{% endhint %}

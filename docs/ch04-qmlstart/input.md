@@ -95,9 +95,9 @@ Rectangle {
 }
 ```
 
-::: tip
+{% hint style="info" %}
 If you want to export the `TextInput` completely, you can export the element by using `property alias input: input`. The first `input` is the property name, where the 2nd input is the element id.
-:::
+{% endhint %}
 
 We then rewrite our `KeyNavigation` example with the new `TLineEditV1` component.
 

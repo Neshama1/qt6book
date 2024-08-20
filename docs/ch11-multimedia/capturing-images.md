@@ -12,9 +12,9 @@ The viewfinder part of the camera is made using a `VideoOutput` element as video
 
 <<< @/docs/ch11-multimedia/src/camera-capture/complete.qml#viewfinder
 
-::: tip
+{% hint style="info" %}
 You can have more control on the camera behaviour by using dedicated `Camera` properties such as `exposureMode`, `whiteBalanceMode` or `zoomFactor`.
-:::
+{% endhint %}
 
 ## The captured images list
 
@@ -31,9 +31,9 @@ In this case, we don’t need to show a preview image, but simply add the result
 <<< @/docs/ch11-multimedia/src/camera-capture/complete.qml#capture-session{6-8}
 
 
-:::tip
+{% hint style="info" %}
 For showing a preview, connect to the `imageCaptured` signal and use the `preview` signal argument as `source` of an `Image` element. An `id` signal argument is sent along both the `imageCaptured` and `imageSaved`. This value is returned from the `capture` method. Using this, the capture of an image can be traced through the complete cycle. This way, the preview can be used first and then be replaced by the properly saved image. This, however, is nothing that we do in the example.
-:::
+{% endhint %}
 
 ## Switching between cameras
 

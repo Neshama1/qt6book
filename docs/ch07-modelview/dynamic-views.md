@@ -72,9 +72,9 @@ The example below illustrates how a header and footer can be used to enhance the
 
 ![image](./assets/automatic/listview-header-footer.png)
 
-::: tip
+{% hint style="info" %}
 Header and footer delegates do not respect the `spacing` property of a `ListView`, instead they are placed directly adjacent to the next item delegate in the list. This means that any spacing must be a part of the header and footer items.
-:::
+{% endhint %}
 
 ## The GridView
 

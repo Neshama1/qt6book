@@ -6,7 +6,7 @@ For operations on rectangles, a convenience API is provided which draws directly
 
 ![image](./assets/convenient.png)
 
-::: tip
+{% hint style="info" %}
 The stroke area extends half of the line width on both sides of the path. A 4 px lineWidth will draw 2 px outside the path and 2 px inside.
-:::
+{% endhint %}
 
