@@ -1,15 +1,30 @@
 # Using FileIO
 
-Now we can use our newly created file to access some data. In this example, we will some city data in a JSON format and display it in a table. We build this as two projects: one for the extension plugin (called `fileio`) which provides us a way to read and write text from a file, and the other, which displays the data in a table, (`CityUI`). The `CityUI` uses the `fileio`extension for reading and writing files. 
+Now we can use our newly created file to access some data. In this example, we will some city data in a JSON format and display it in a table. We build this as two projects: one for the extension plugin (called `fileio`) which provides us a way to read and write text from a file, and the other, which displays the data in a table, (`CityUI`). The `CityUI` uses the `fileio`extension for reading and writing files.
 
-![image](./images/cityui_mock.png)
+![image](images/cityui\_mock.png)
 
-JSON data is just text that is formatted in such a way that it can be converted into a valid JS object/array and back to text. We use our `FileIO` to read the JSON formatted data and convert it into a JS object using the built in Javascript function `JSON.parse()`. The data is later used as a model for the table view. This is implemented in the read document and write document functions shown below. 
+JSON data is just text that is formatted in such a way that it can be converted into a valid JS object/array and back to text. We use our `FileIO` to read the JSON formatted data and convert it into a JS object using the built in Javascript function `JSON.parse()`. The data is later used as a model for the table view. This is implemented in the read document and write document functions shown below.
 
-<<< @/docs/ch17-extensions/src/CityUI/main.qml#readwrite
+```
+FileIO {
+    id: io
+}
 
-The JSON data used in this example is in the `cities.json` file.
-It contains a list of city data entries, where each entry contains interesting data about the city such as what is shown below.
+function readDocument() {
+    io.source = openDialog.fileUrl
+    io.read()
+    view.model = JSON.parse(io.text)
+}
+
+function saveDocument() {
+    var data = view.model
+    io.text = JSON.stringify(data, null, 4)
+    io.write()
+}
+```
+
+The JSON data used in this example is in the `cities.json` file. It contains a list of city data entries, where each entry contains interesting data about the city such as what is shown below.
 
 ```json
 [
@@ -26,7 +41,7 @@ It contains a list of city data entries, where each entry contains interesting d
 
 ## The Application Window
 
-We use the Qt Creator `QtQuick Application` wizard to create a Qt Quick Controls 2 based application. We will not use the new QML forms as this is difficult to explain in a book, although the new forms approach with a *ui.qml* file is much more usable than previous. So you can remove/delete the forms file for now.
+We use the Qt Creator `QtQuick Application` wizard to create a Qt Quick Controls 2 based application. We will not use the new QML forms as this is difficult to explain in a book, although the new forms approach with a _ui.qml_ file is much more usable than previous. So you can remove/delete the forms file for now.
 
 The basic setup is an `ApplicationWindow` which can contain a toolbar, menubar, and status bar. We will only use the menubar to create some standard menu entries for opening and saving the document. The basic setup will just display an empty window.
 
@@ -49,7 +64,46 @@ ApplicationWindow {
 
 To better use/reuse our commands we use the QML `Action` type. This will allow us later to use the same action also for a potential toolbar. The open and save and exit actions are quite standard. The open and save action do not contain any logic yet, this we will come later. The menubar is created with a file menu and these three action entries. Additional we prepare already a file dialog, which will allow us to pick our city document later. A dialog is not visible when declared, you need to use the `open()` method to show it.
 
-<<< @/docs/ch17-extensions/src/CityUI/main.qml#actions
+```
+Action {
+    id: save
+    text: qsTr("&Save")
+    shortcut: StandardKey.Save
+    onTriggered: {
+        saveDocument()
+    }
+}
+
+Action {
+    id: open
+    text: qsTr("&Open")
+    shortcut: StandardKey.Open
+    onTriggered: openDialog.open()
+}
+
+Action {
+    id: exit
+    text: qsTr("E&xit")
+    onTriggered: Qt.quit();
+}
+
+menuBar: MenuBar {
+    Menu {
+        title: qsTr("&File")
+        MenuItem { action: open }
+        MenuItem { action: save }
+        MenuSeparator {}
+        MenuItem { action: exit }
+    }
+}
+
+FileDialog {
+    id: openDialog
+    onAccepted: {
+        root.readDocument()
+    }
+}
+```
 
 ## Formatting the Table
 
@@ -82,11 +136,9 @@ TableView {
 }
 ```
 
-Now the application should show you a menubar with a file menu and an empty table with 4 table headers. The next step will be to populate the table with useful data using our *FileIO* extension.
+Now the application should show you a menubar with a file menu and an empty table with 4 table headers. The next step will be to populate the table with useful data using our _FileIO_ extension.
 
-
-
-![image](./images/cityui_empty.png)
+![image](images/cityui\_empty.png)
 
 The `cities.json` document is an array of city entries. Here is an example.
 
@@ -165,15 +217,13 @@ FileIO {
 
 This is basically the application with reading, writing and displaying a JSON document. Think about all the time spend by writing XML readers and writers. With JSON all you need is a way to read and write a text file or send receive a text buffer.
 
-
-
-![image](./images/cityui_table.png)
+![image](images/cityui\_table.png)
 
 ## Finishing Touch
 
 The application is not fully ready yet. We still want to show the flags and allow the user to modify the document by removing cities from the model.
 
-In this example, the flag files are stored relative to the `main.qml` document in a *flags* folder. To be able to show them the table column needs to define a custom delegate for rendering the flag image.
+In this example, the flag files are stored relative to the `main.qml` document in a _flags_ folder. To be able to show them the table column needs to define a custom delegate for rendering the flag image.
 
 ```qml
 TableViewColumn {
@@ -211,5 +261,4 @@ For the data removal operation, we get a hold on the view model and then remove 
 
 A JS array is unfortunately not so smart as a Qt model like the `QAbstractItemModel`, which will notify the view about row changes or data changes. The view will not show any updated data by now as it is never notified of any changes. Only when we set the data back to the view, the view recognizes there is new data and refreshes the view content. Setting the model again using `view.model = data` is a way to let the view know there was a data change.
 
-![image](./images/cityui_populated.png)
-
+![image](images/cityui\_populated.png)
