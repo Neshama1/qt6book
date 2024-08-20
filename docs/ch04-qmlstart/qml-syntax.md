@@ -14,8 +14,6 @@ Let’s start with a simple example of a QML file to explain the different synta
 
 <<< @/docs/ch04-qmlstart/src/concepts/RectangleExample.qml#global
 
-!CODEFILE "./src/concepts/RectangleExample.qml"
-
 * The `import` statement imports a module. An optional version in the form of `<major>.<minor>` can be added.
 * Comments can be made using `//` for single line comments or `/* */` for multi-line comments. Just like in C/C++ and JavaScript
 * Every QML file needs to have exactly one root element, like HTML
