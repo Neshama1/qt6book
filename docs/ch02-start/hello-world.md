@@ -2,9 +2,9 @@
 
 To test your installation, we will create a small *hello world* application. Please, open Qt Creator and create a Qt Quick UI Project ( `File ‣ New File or Project ‣ Other Project ‣ Qt Quick UI prototype` ) and name the project `HelloWorld`.
 
-::: tip
+{% hint style="info" %}
 The Qt Creator IDE allows you to create various types of applications. If not otherwise stated, we always use a Qt Quick UI prototype project. For a production application you would often prefer a `CMake` based project, but for fast prototyping this type is better suited.
-:::
+{% endhint %}
 
 ::: tip
 A typical Qt Quick application is made out of a runtime called the QmlEngine which loads the initial QML code. The developer can register C++ types with the runtime to interface with the native code. These C++ types can also be bundled into a plugin and then dynamically loaded using an import statement. The `qml` tool is a pre-made runtime which is used directly. For the beginning, we will not cover the native side of development and focus only on the QML aspects of Qt 6. This is why we start from a prototype project.
